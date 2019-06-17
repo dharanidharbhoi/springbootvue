@@ -57,15 +57,16 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
+    	
     
-    	    http.authorizeRequests()
-    	      .anyRequest().authenticated()
-    	      .and()
-    	      .formLogin()
-    	      .permitAll()
-    	      .and()
-    	      .csrf()
-    	      .disable();
+    	//Enable This to remove spring security
+    	http.authorizeRequests().antMatchers("/").permitAll();
+    	
+    	//Enable this to remove spring security
+		/*
+		 * http.authorizeRequests() .anyRequest().authenticated() .and() .formLogin()
+		 * .permitAll() .and() .csrf() .disable();
+		 */
     	
     }
 
